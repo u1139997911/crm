@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: zuul
+    name: application-zuul
   sleuth:
     sampler:
       percentage: 1
