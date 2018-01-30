@@ -81,7 +81,7 @@ zuul:
       stripPrefix: false
       serviceId: crm-auth
     business:
-      path: /ids/**
+      path: /crm/**
       stripPrefix: false
       serviceId: crm-business
     
