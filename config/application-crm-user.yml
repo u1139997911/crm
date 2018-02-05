@@ -73,3 +73,5 @@ isValidate:
     boolean: true
 
 token.timeout.second: 1800
+
+timestamp.validate.limit: 120
