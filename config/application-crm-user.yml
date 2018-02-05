@@ -12,9 +12,9 @@ spring:
     remove-abandoned-timeout:180
 
   datasource:
-    url: jdbc:mysql://10.108.10.55:3306/crm_auth?rewriteBatchedStatements=true&useUnicode=true&characterEncoding=utf-8
-    username: allways
-    password: 1qaz@WSX_321
+    url: jdbc:mysql://10.108.2.29:3306/crm_auth?rewriteBatchedStatements=true&useUnicode=true&characterEncoding=utf-8
+    username: test
+    password: test
     driver-class-name: com.mysql.jdbc.Driver
 
   rabbitmq:
