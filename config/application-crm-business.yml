@@ -138,3 +138,5 @@ sharding:
         slave-data-source-names: ds_slave_0
         name: ds_ms
         master-data-source-name: ds_master
+        
+redisInvalidDate: 15
