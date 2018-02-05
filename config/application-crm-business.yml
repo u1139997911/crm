@@ -16,6 +16,17 @@ spring:
     username: allways
     password: 1qaz@WSX_321
     driver-class-name: com.mysql.jdbc.Driver
+  data:
+    mongodb:
+      authentication-database: admin
+      database: crm_business
+      host: 10.108.2.26
+      port: 27017
+      password: admin
+      username: admin
+      repositories:
+      enabled: true
+
 
   rabbitmq:
     host: 10.108.10.17
