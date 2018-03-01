@@ -48,6 +48,7 @@ spring:
 mybatis:
   mapperLocations: classpath*:mapper/*.xml
   typeAliasesPackage: com.anji.allways.business.ids.entity
+  mapUnderscoreToCamelCase: true
   configuration:
     log-impl: org.apache.ibatis.logging.log4j2.Log4j2Impl
 
