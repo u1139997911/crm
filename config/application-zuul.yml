@@ -48,6 +48,7 @@ ribbon:
   
   
 zuul:
+  prefix: /api    
   routes:
     sys:
       path: /sys/**
