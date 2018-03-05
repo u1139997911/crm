@@ -56,7 +56,7 @@ hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 6000
 eureka:
   instance:
     preferIpAddress: true
-    instance-id: 10.108.2.29:8761
+    instance-id: ${spring.cloud.client.ipAddress}:${server.port}
   client:
     registerWithEureka: true
     fetchRegistry: true
