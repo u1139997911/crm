@@ -150,3 +150,11 @@ WechartAndJgSmsEntity:
     masterSecret: c387de2d37e0eecc97d0e215
     appkey: 32822da91c57f28f56a0e1b0
     templateId: 148365
+    
+fdfs:
+  soTimeout: 1500
+  connectTimeout: 600
+  trackerList: 
+      - 10.108.2.25:22122  
+      - 10.108.2.26:22122
+
