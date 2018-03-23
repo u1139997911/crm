@@ -85,6 +85,11 @@ zuul:
       path: /crm/**
       stripPrefix: false
       serviceId: crm-business
+    file:
+      path: /file/**
+      stripPrefix: false
+      serviceId: crm-fileUpload
+      
     
 endpoints:
   shutdown:
