@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: file_upload
+    name: crm-fileUpload
 
   tomcat:
     max-active:30
