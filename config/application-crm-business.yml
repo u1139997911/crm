@@ -157,4 +157,6 @@ fdfs:
   trackerList: 
       - 10.108.2.25:22122  
       - 10.108.2.26:22122
+scheduler:
+        time: 24
 
