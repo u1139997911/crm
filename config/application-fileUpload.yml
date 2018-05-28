@@ -90,13 +90,13 @@ sharding:
         password: test 
         type: com.alibaba.druid.pool.DruidDataSource
         driver-class-name: com.mysql.jdbc.Driver
-        url: jdbc:mysql://10.108.2.25:3306/crm_business?rewriteBatchedStatements=true&useUnicode=true&characterEncoding=utf-8
+        url: jdbc:mysql://10.108.2.26:3306/crm_business?rewriteBatchedStatements=true&useUnicode=true&characterEncoding=utf-8
         username: test
       ds_master:
         password: test 
         type: com.alibaba.druid.pool.DruidDataSource
         driver-class-name: com.mysql.jdbc.Driver
-        url: jdbc:mysql://10.108.2.25:3306/crm_business?rewriteBatchedStatements=true&useUnicode=true&characterEncoding=utf-8
+        url: jdbc:mysql://10.108.2.26:3306/crm_business?rewriteBatchedStatements=true&useUnicode=true&characterEncoding=utf-8
         username: test
     config:
       masterslave:
