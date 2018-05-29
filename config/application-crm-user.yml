@@ -31,7 +31,7 @@ spring:
     baseUrl: http://10.108.10.58:9411/
 
   redis:
-    database: 0
+    database: 1
     host: 10.108.10.17
 #    host: localhost
     port: 6379
