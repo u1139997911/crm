@@ -1,0 +1,162 @@
+﻿server:
+  port: 28109
+
+spring:
+  application:
+    name: crm-business
+
+  tomcat:
+    max-active:30
+    max-wait:1000
+    max-idle:20
+    remove-abandoned-timeout:180
+
+  data:
+    mongodb:
+      authentication-database: admin
+      database: crm_business
+      host: 10.108.2.26
+      port: 27017
+      password: admin
+      username: admin
+      repositories:
+      enabled: true
+
+
+  rabbitmq:
+    host: 10.108.10.17
+    username: admin
+    password: admin
+  sleuth:
+    sampler:
+      percentage: 1
+  zipkin:
+    baseUrl: http://10.108.10.58:9411/
+
+  redis:
+    database: 1 
+    host: 10.108.10.17
+    port: 6379
+    password:
+    pool:
+      max-active: 8
+      max-wait: -1
+      max-idle: 8
+      min-idle: 0
+    timeout: 0
+
+mybatis:
+  mapperLocations: classpath*:mapper/*.xml
+  typeAliasesPackage: com.anji.allways.business.ids.entity
+  mapUnderscoreToCamelCase: true
+  configuration:
+    log-impl: org.apache.ibatis.logging.log4j2.Log4j2Impl
+
+
+mapper:
+    mappers:
+        - com.anji.allways.base.mapper.CommonMapper
+    not-empty: false
+    identity: MYSQL
+hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 6000
+eureka:
+  instance:
+    preferIpAddress: true
+    instance-id: ${spring.cloud.client.ipAddress}:${server.port}
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+            defaultZone: http://10.108.2.29:8761/eureka/
+
+endpoints:
+  shutdown:
+    enabled: true
+  restart:
+    enabled: true
+
+token.timeout.second: 1800
+swagger.show: true #生产环境改为false
+security:
+  basic:
+    path: /swagger-ui.html
+    enabled: false
+  user:
+    name: ajawl
+    password: 123456
+EsbUrl:
+  snda: http://10.107.1.159:8011/esb/IDS2TMSService/SNDA
+  canc: http://10.107.1.159:8011/esb/IDS2TMSService/CANC
+  cload: http://10.107.1.159:8011/esb/IDS2TMSService/CLOAD
+  cplan: http://10.107.1.159:8011/esb/IDS2TMSService/CPLAN
+  rorder: http://10.107.1.159:8011/esb/IDS2TMSService/RORDER
+  loadplan: http://10.107.1.159:8011/esb/IDS2TMSService/LOADPLAN
+  cloadplan: http://10.107.1.159:8011/esb/IDS2TMSService/CLOADPLAN
+  
+management:
+ security:
+    enabled: false
+    
+plan:
+    givup:
+        delayhours: 3
+
+load:
+    maketime:
+        before: 10
+
+baseuri: http://192.168.205.196:8000
+
+roadGiveUpTime: 30
+
+halfExtractOverTime: 180
+
+aiRespOverTime: 600
+
+cssVersion:
+    version: 1.0
+cutOrNotCutEsb: 1
+
+sharding:
+  jdbc:
+    datasource:
+      names: ds_master,ds_slave_0
+      ds_slave_0:
+        password: test 
+        type: com.alibaba.druid.pool.DruidDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        url: jdbc:mysql://10.108.2.26:3306/crm_business?rewriteBatchedStatements=true&useUnicode=true&characterEncoding=utf-8
+        username: test
+      ds_master:
+        password: test 
+        type: com.alibaba.druid.pool.DruidDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        url: jdbc:mysql://10.108.2.26:3306/crm_business?rewriteBatchedStatements=true&useUnicode=true&characterEncoding=utf-8
+        username: test
+    config:
+      masterslave:
+        load-balance-algorithm-type: round_robin
+        slave-data-source-names: ds_slave_0
+        name: ds_ms
+        master-data-source-name: ds_master
+        
+redisInvalidDate: 15
+
+isValidate:
+    boolean: true
+WechartAndJgSmsEntity:
+    appId: wxa9bf0219adac8929
+    secret: 8e868987f32cc185cd989e2e0646960c
+    masterSecret: c387de2d37e0eecc97d0e215
+    appkey: 32822da91c57f28f56a0e1b0
+    templateId: 148365
+    
+fdfs:
+  soTimeout: 1500
+  connectTimeout: 600
+  trackerList: 
+      - 10.108.2.25:22122  
+      - 10.108.2.26:22122
+scheduler:
+        time: 30
+

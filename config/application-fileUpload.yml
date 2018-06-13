@@ -1,0 +1,115 @@
+server:
+  port: 28062
+
+spring:
+  application:
+    name: crm-fileUpload
+
+  tomcat:
+    max-active:30
+    max-wait:1000
+    max-idle:20
+    remove-abandoned-timeout:180
+
+  data:
+    mongodb:
+      authentication-database: admin
+      database: crm_business
+      host: 10.108.2.26
+      port: 27017
+      password: admin
+      username: admin
+      repositories:
+      enabled: true
+
+
+  rabbitmq:
+    host: 10.108.10.17
+    username: admin
+    password: admin
+  sleuth:
+    sampler:
+      percentage: 1
+  zipkin:
+    baseUrl: http://10.108.10.58:9411/
+
+  redis:
+    database: 1 
+    host: 10.108.10.17
+    port: 6379
+    password:
+    pool:
+      max-active: 8
+      max-wait: -1
+      max-idle: 8
+      min-idle: 0
+    timeout: 0
+
+hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 6000
+eureka:
+  instance:
+    preferIpAddress: true
+    instance-id: ${spring.cloud.client.ipAddress}:${server.port}
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+           defaultZone: http://10.108.2.29:8761/eureka/
+
+endpoints:
+  shutdown:
+    enabled: true
+  restart:
+    enabled: true
+
+token.timeout.second: 1800
+swagger.show: true #生产环境改为false
+security:
+  basic:
+    path: /swagger-ui.html
+    enabled: false
+  user:
+    name: ajawl
+    password: 123456
+  
+management:
+ security:
+    enabled: false
+    
+baseuri: http://192.168.205.196:8000
+
+halfExtractOverTime: 180
+
+aiRespOverTime: 600
+
+sharding:
+  jdbc:
+    datasource:
+      names: ds_master,ds_slave_0
+      ds_slave_0:
+        password: test 
+        type: com.alibaba.druid.pool.DruidDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        url: jdbc:mysql://10.108.2.26:3306/crm_business?rewriteBatchedStatements=true&useUnicode=true&characterEncoding=utf-8
+        username: test
+      ds_master:
+        password: test 
+        type: com.alibaba.druid.pool.DruidDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        url: jdbc:mysql://10.108.2.26:3306/crm_business?rewriteBatchedStatements=true&useUnicode=true&characterEncoding=utf-8
+        username: test
+    config:
+      masterslave:
+        load-balance-algorithm-type: round_robin
+        slave-data-source-names: ds_slave_0
+        name: ds_ms
+        master-data-source-name: ds_master
+        
+redisInvalidDate: 15
+
+fdfs:
+  soTimeout: 1500
+  connectTimeout: 600
+  trackerList: 
+         - 10.108.2.25:22122  
+         - 10.108.2.26:22122
