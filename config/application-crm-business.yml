@@ -11,16 +11,7 @@ spring:
     max-idle:20
     remove-abandoned-timeout:180
 
-  data:
-    mongodb:
-      authentication-database: admin
-      database: crm_business
-      host: 10.108.2.26
-      port: 27017
-      password: admin
-      username: admin
-      repositories:
-      enabled: true
+
 
 
   rabbitmq:
