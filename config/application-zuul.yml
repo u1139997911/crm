@@ -72,7 +72,7 @@ zuul:
 
     user:
       path: /user/**
-      stripPrefix: false
+      stripPrefix: true
       serviceId: crm-auth
       customSensitiveHeaders: true
     log:
