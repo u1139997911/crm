@@ -12,7 +12,7 @@ spring:
 
   rabbitmq:
     #host: 10.108.10.17
-    host: 192.168.136.128
+    host: 192.168.62.128
     username: admin
     password: admin
 
